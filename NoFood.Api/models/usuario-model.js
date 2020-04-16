@@ -6,9 +6,9 @@ const schema = mongoose.Schema;
 const usuarioModel = new schema({
     nome: { type: String, required: true, trim: true, index: true },
     email: { type: String, required: true },
-    senha: {type: String, required: true},
-    foto: {type:String},
-    ativo: { type: Boolean, required: true },
+    senha: { type: String, required: true },
+    foto: { type: String },
+    ativo: { type: Boolean, required: true, default: true },
     dataCriacao: { type: Date, default: Date.now }
 }, { versionKey: false });
 
@@ -19,4 +19,4 @@ usuarioModel.pre('save', next => {
     next();
 });
 
-module.exports = mongoose.model('Produto', produtoModel);
+module.exports = mongoose.model('Usuario', usuarioModel);
